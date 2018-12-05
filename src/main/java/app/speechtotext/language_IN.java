@@ -3,7 +3,7 @@ package app.speechtotext;
 /**
  * Created by varun.am on 05/12/18
  */
-public enum TargetLanguage_IN {
+public enum language_IN {
     KANNADA("kn_IN"),
     HINDI("hi_IN"),
     TAMIL("ta_IN"),
@@ -12,7 +12,7 @@ public enum TargetLanguage_IN {
 
     private String targetLanguage;
 
-    TargetLanguage_IN(String targetLanguage) {
+    language_IN(String targetLanguage) {
         this.targetLanguage = targetLanguage;
     }
 

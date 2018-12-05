@@ -22,13 +22,13 @@ public class SpeechToTextConverter {
         this.activity = activity;
     }
 
-    public void start(TargetLanguage targetLanguage, String promptText) {
-        Locale locale = new Locale(targetLanguage.toString());
+    public void start(Language language, String promptText) {
+        Locale locale = new Locale(language.toString());
         Log.e(TAG, "Locale " + locale.getLanguage() + " present: " + isLocalePresent(locale));
         if (isLocalePresent(locale)) {
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, getTargetLanguageIn(targetLanguage));
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, getTargetLanguageIn(language));
             if (TextUtils.isEmpty(promptText))
                 intent.putExtra(RecognizerIntent.EXTRA_PROMPT, promptText);
             try {
@@ -40,18 +40,18 @@ public class SpeechToTextConverter {
             Log.e(TAG, "ERROR!!! Device not supported OR Language not available");
     }
 
-    private String getTargetLanguageIn(TargetLanguage targetLanguage) {
-        switch (targetLanguage) {
+    private String getTargetLanguageIn(Language language) {
+        switch (language) {
             case KANNADA:
-                return TargetLanguage_IN.KANNADA.toString();
+                return language_IN.KANNADA.toString();
             case TAMIL:
-                return TargetLanguage_IN.TAMIL.toString();
+                return language_IN.TAMIL.toString();
             case TELUGU:
-                return TargetLanguage_IN.TELUGU.toString();
+                return language_IN.TELUGU.toString();
             case MALAYALAM:
-                return TargetLanguage_IN.MALAYALAM.toString();
+                return language_IN.MALAYALAM.toString();
             case HINDI:
-                return TargetLanguage_IN.HINDI.toString();
+                return language_IN.HINDI.toString();
             default:
                 return "";
         }

@@ -7,6 +7,8 @@ import android.speech.RecognizerIntent;
 import android.text.TextUtils;
 import android.util.Log;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -66,5 +68,9 @@ public class SpeechToTextConverter {
             }
         }
         return false;
+    }
+
+    public static List<Language> getAvailableLanguages() {
+        return Arrays.asList(Language.values());
     }
 }

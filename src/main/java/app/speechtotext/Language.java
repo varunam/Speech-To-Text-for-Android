@@ -5,6 +5,7 @@ package app.speechtotext;
  */
 public enum Language {
     KANNADA("kn"),
+    ENGLISH("en"),
     HINDI("hi"),
     TAMIL("ta"),
     TELUGU("te"),

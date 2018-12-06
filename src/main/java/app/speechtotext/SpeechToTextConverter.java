@@ -31,7 +31,7 @@ public class SpeechToTextConverter {
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, getTargetLanguageIn(language));
-            if (TextUtils.isEmpty(promptText))
+            if (!TextUtils.isEmpty(promptText))
                 intent.putExtra(RecognizerIntent.EXTRA_PROMPT, promptText);
             try {
                 activity.startActivityForResult(intent, TEXT_TO_SPEECH_REQUEST_KEY);

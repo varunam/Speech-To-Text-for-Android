@@ -73,4 +73,18 @@ public class SpeechToTextConverter {
     public static List<Language> getAvailableLanguages() {
         return Arrays.asList(Language.values());
     }
+
+    //TODO add this in activity instance sent
+    /*public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == TEXT_TO_SPEECH_REQUEST_KEY) {
+            if (resultCode == RESULT_OK && data != null) {
+                val result = data
+                        .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+
+                //result will be in result.get(0)
+
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data)
+    }*/
 }

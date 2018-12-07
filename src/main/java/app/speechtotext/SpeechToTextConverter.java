@@ -23,7 +23,7 @@ public class SpeechToTextConverter {
         this.activity = activity;
     }
 
-    public void start(Language language, String promptText, int TTSRequestKey) {
+    public void start(Language language, String promptText, int STTRequestKey) {
         Locale locale = new Locale(language.toString());
         Log.e(TAG, "Locale " + locale.getLanguage() + " present: " + isLocalePresent(locale));
         if (isLocalePresent(locale)) {
@@ -33,7 +33,7 @@ public class SpeechToTextConverter {
             if (!TextUtils.isEmpty(promptText))
                 intent.putExtra(RecognizerIntent.EXTRA_PROMPT, promptText);
             try {
-                activity.startActivityForResult(intent, TTSRequestKey);
+                activity.startActivityForResult(intent, STTRequestKey);
             } catch (ActivityNotFoundException e) {
                 Log.e(TAG, "ERROR!!! Device not supported");
             }

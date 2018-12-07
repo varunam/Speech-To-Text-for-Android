@@ -17,14 +17,13 @@ import java.util.Locale;
 public class SpeechToTextConverter {
 
     private static final String TAG = SpeechToTextConverter.class.getSimpleName();
-    public static final int TEXT_TO_SPEECH_REQUEST_KEY = 100;
     private Activity activity;
 
     public SpeechToTextConverter(Activity activity) {
         this.activity = activity;
     }
 
-    public void start(Language language, String promptText) {
+    public void start(Language language, String promptText, int TTSRequestKey) {
         Locale locale = new Locale(language.toString());
         Log.e(TAG, "Locale " + locale.getLanguage() + " present: " + isLocalePresent(locale));
         if (isLocalePresent(locale)) {
@@ -34,7 +33,7 @@ public class SpeechToTextConverter {
             if (!TextUtils.isEmpty(promptText))
                 intent.putExtra(RecognizerIntent.EXTRA_PROMPT, promptText);
             try {
-                activity.startActivityForResult(intent, TEXT_TO_SPEECH_REQUEST_KEY);
+                activity.startActivityForResult(intent, TTSRequestKey);
             } catch (ActivityNotFoundException e) {
                 Log.e(TAG, "ERROR!!! Device not supported");
             }
@@ -76,7 +75,7 @@ public class SpeechToTextConverter {
 
     //TODO add this in activity instance sent
     /*public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == TEXT_TO_SPEECH_REQUEST_KEY) {
+        if (requestCode == TTSRequestKey) {
             if (resultCode == RESULT_OK && data != null) {
                 val result = data
                         .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)

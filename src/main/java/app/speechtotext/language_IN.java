@@ -9,7 +9,9 @@ public enum language_IN {
     HINDI("hi_IN"),
     TAMIL("ta_IN"),
     TELUGU("te_IN"),
-    MALAYALAM("ml_IN");
+    MALAYALAM("ml_IN"),
+    MARATHI("mr_IN"),
+    GUJARATI("gu_IN");
 
     private String targetLanguage;
 

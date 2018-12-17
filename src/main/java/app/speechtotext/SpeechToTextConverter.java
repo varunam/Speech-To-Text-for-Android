@@ -11,6 +11,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
+import static app.speechtotext.Prompts.*;
+
 /**
  * Created by varun.am on 05/12/18
  */
@@ -53,12 +55,16 @@ public class SpeechToTextConverter {
                 return language_IN.MALAYALAM.toString();
             case HINDI:
                 return language_IN.HINDI.toString();
+            case MARATHI:
+                return language_IN.MARATHI.toString();
+            case GUJARATI:
+                return language_IN.GUJARATI.toString();
             default:
                 return "";
         }
     }
 
-    public boolean isLocalePresent(Locale newLocale) {
+    private boolean isLocalePresent(Locale newLocale) {
         Locale[] locales = Locale.getAvailableLocales();
         for (Locale locale : locales) {
             //Logger.e(TAG, "Found Locale: " + locale.getDisplayName());
@@ -73,7 +79,28 @@ public class SpeechToTextConverter {
         return Arrays.asList(Language.values());
     }
 
-    //TODO add this in activity instance sent
+    public String getPromptFor(Language language) {
+        switch (language) {
+            case KANNADA:
+                return KANNADA_DEFAULT_PROMPT;
+            case HINDI:
+                return HINDI_DEFAULT_PROMPT;
+            case MALAYALAM:
+                return MALAYALAM_DEFAULT_PROMPT;
+            case TELUGU:
+                return TELUGU_DEFAULT_PROMPT;
+            case TAMIL:
+                return TAMIL_DEFAULT_PROMPT;
+            case MARATHI:
+                return MARATHI_DEFAULT_PROMPT;
+            case GUJARATI:
+                return GUJARATI_DEFAULT_PROMPT;
+            default:
+                return ENGLISH_DEFAULT_PROMPT;
+        }
+    }
+
+//TODO add this in activity instance sent
     /*public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == TTSRequestKey) {
             if (resultCode == RESULT_OK && data != null) {

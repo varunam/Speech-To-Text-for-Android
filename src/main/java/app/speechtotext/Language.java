@@ -29,7 +29,8 @@ public enum Language {
     JAPANESE("ja"),
     ITALIAN("it"),
     RUSSIAN("ru"),
-    CHINESE("zh-CN");
+    CHINESE("zh-CN"),
+    KOREAN("ko");
 
     private String targetLanguage;
 
